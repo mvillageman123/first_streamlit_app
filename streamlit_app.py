@@ -41,7 +41,7 @@ def get_dataframe(table_name):
     query = f"SELECT * FROM {table_name}"
     my_cur.execute(query)
     data = my_cur.fetchall()
-    df = pandas.DataFrame(data, columns=[i[0] for i in cursor.description])
+    df = pandas.DataFrame(data, columns=[i[0] for i in my_cur.description])
     return df
 data=get_dataframe("MYTABLE") 
 streamlit.dataframe(data) 
