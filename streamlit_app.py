@@ -38,6 +38,7 @@ import streamlit as st
 
 user_input1 = st.text_area("Enter owner name", "Sarah")
 user_input2 = st.text_area("Enter pet name", "Dog")
+st.button("Submit", type="primary")
 
 
 my_cnx =  snowflake.connector.connect(**streamlit.secrets["snowflake"])
