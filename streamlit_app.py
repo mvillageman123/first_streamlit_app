@@ -37,10 +37,6 @@ import streamlit as st
 
 # Initialize connection.
 conn =  snowflake.connector.connect(**streamlit.secrets["snowflake"])
-
-# Perform query.
-df = conn.query("SELECT * from mytable;", ttl=600)
-
-# Print results.
-for row in df.itertuples():
-    st.write(f"{row.NAME} has a :{row.PET}:")
+my_cur = my_cnx.cursor()
+my_cur.execute("select * from mytable")
+streamlit.text(my_cur) 
