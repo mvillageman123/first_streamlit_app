@@ -32,12 +32,16 @@ import snowflake.connector
 #streamlit.text(my_data_row)
 
 # streamlit_app.py
-
 import streamlit as st
 
 # Initialize connection.
 my_cnx =  snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
-my_cur.execute("select * from mytable")
-data=my_cur.fetchall()
+def get_dataframe(table_name):
+    query = f"SELECT * FROM {table_name}"
+    my_cur.execute(query)
+    data = cursor.fetchall()
+    df = pd.DataFrame(data, columns=[i[0] for i in cursor.description])
+    return df
+data=get_dataframe("PETS") 
 streamlit.dataframe(data) 
