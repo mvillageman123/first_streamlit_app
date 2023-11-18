@@ -43,5 +43,5 @@ def get_dataframe(table_name):
     data = cursor.fetchall()
     df = pd.DataFrame(data, columns=[i[0] for i in cursor.description])
     return df
-data=get_dataframe("PETS") 
+data=get_dataframe("MYTABLE") 
 streamlit.dataframe(data) 
