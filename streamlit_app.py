@@ -36,8 +36,6 @@ import streamlit as st
 
 # Initialize connection.
 
-user_input1 = st.text_area("Enter owner name", "Sarah")
-user_input2 = st.text_area("Enter pet name", "Dog")
 st.button("Submit", type="primary")
 
 
@@ -54,12 +52,10 @@ streamlit.dataframe(data)
 
 with st.form("my_form"):
    st.write("Inside the form")
-   slider_val = st.slider("Form slider")
-   checkbox_val = st.checkbox("Form checkbox")
-
-   # Every form must have a submit button.
+   user_input1 = st.text_area("Enter owner name", "Sarah")
+   user_input2 = st.text_area("Enter pet name", "Dog")
    submitted = st.form_submit_button("Submit")
    if submitted:
-       st.write("slider", slider_val, "checkbox", checkbox_val)
+       st.write("name", user_input1, "pet", user_input2)
 
 st.write("Outside the form")
