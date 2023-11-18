@@ -35,6 +35,9 @@ import snowflake.connector
 import streamlit as st
 
 # Initialize connection.
+
+user_input = st.text_area("Enter your Pet", "Dog")
+
 my_cnx =  snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 def get_dataframe(table_name):
