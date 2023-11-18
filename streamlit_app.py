@@ -36,7 +36,7 @@ import snowflake.connector
 import streamlit as st
 
 # Initialize connection.
-conn = st.connection("snowflake")
+conn =  snowflake.connector.connect(**streamlit.secrets["snowflake"])
 
 # Perform query.
 df = conn.query("SELECT * from mytable;", ttl=600)
