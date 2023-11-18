@@ -39,4 +39,5 @@ import streamlit as st
 my_cnx =  snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("select * from mytable")
-streamlit.text(my_cur) 
+data=my_cur.fetchall()
+streamlit.text(data) 
